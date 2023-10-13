@@ -188,10 +188,10 @@ static void rndPkmn(struct Pokemon* mon) {
     exp = GetMonData(mon, MON_DATA_EXP, NULL);
     
     nextLevel = GetMonData(mon, MON_DATA_LEVEL, 0) + 1;
-    xpa = gExperienceTables[gBaseStats[species].growthRate][level];
-    xpb = gExperienceTables[gBaseStats[species].growthRate][nextLevel];
-    xpc = gExperienceTables[gBaseStats[n].growthRate][level];
-    xpd = gExperienceTables[gBaseStats[n].growthRate][nextLevel];
+    xpa = gExperienceTables[gSpeciesInfo[species].growthRate][level];
+    xpb = gExperienceTables[gSpeciesInfo[species].growthRate][nextLevel];
+    xpc = gExperienceTables[gSpeciesInfo[n].growthRate][level];
+    xpd = gExperienceTables[gSpeciesInfo[n].growthRate][nextLevel];
 
     hpr = mon->hp / (f32)mon->maxHP;
     prevHp = mon->hp;
@@ -228,8 +228,7 @@ static void rndPkmn(struct Pokemon* mon) {
     SetMonData(mon, MON_DATA_NICKNAME, nickname);
     SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
     personality = 4294967295u;
-    SetMonData(mon, MON_DATA_FATEFUL_ENCOUNTER, &personality);
-    SetMonData(mon, MON_DATA_OBEDIENCE, &personality);
+    SetMonData(mon, MON_DATA_MODERN_FATEFUL_ENCOUNTER, &personality);
     
 
     CalculateMonStats(mon);
